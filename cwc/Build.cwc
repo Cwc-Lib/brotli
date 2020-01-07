@@ -1,0 +1,33 @@
+-{vFlag}=""
+;-DLIBSSH2_OPENSSL
+;-D_PLATFORM_WINDOWS
+>
+-{vIncl}=
+-I ../c/include/
+>
+;Build brotli
+-c ../c/tools/ -o obj/cpp_{_sPlatform}_{_sOpt}/lib/brotli/
+-{vIncl}
+-{vFlag}
+>
+;Build brotli_enc
+-c ../c/enc/ -o obj/cpp_{_sPlatform}_{_sOpt}/lib/brotli/enc/
+-{vIncl}
+-{vFlag}
+>
+;Build brotli_dec
+-c ../c/dec/ -o obj/cpp_{_sPlatform}_{_sOpt}/lib/brotli/dec/
+-{vIncl}
+-{vFlag}
+>
+;Build brotli_common
+-c ../c/common/ -o obj/cpp_{_sPlatform}_{_sOpt}/lib/brotli/common/
+-{vIncl}
+-{vFlag}
+>
+;Generate Dynamic Lib
+-o obj/cpp_{_sPlatform}_{_sOpt}/lib/ -#To Lib/{_sPlatform}_{_sOpt}/brotli.{_sDynamic}
+>
+;Generate Static Lib
+-o obj/cpp_{_sPlatform}_{_sOpt}/lib/ -#To Lib/{_sPlatform}_{_sOpt}/libbrotli.a
+>
